@@ -1,4 +1,4 @@
-![A simple illustration describing the concept of mvc](/assets/images/mvc-illustration.jpg)
+![A simple illustration describing the concept of mvc](/public/assets/images/mvc-illustration.jpg)
 
 Portfolio Website for course DV1608
 ===================================
