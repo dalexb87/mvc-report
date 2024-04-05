@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Startsida{% endblock %}
+
+{% block body %}
+    <h1>JSON API</h1>
+    <p>Här visas webbplatsens samtliga routes</p>
+    <ul>
+        {% for route in jsonRoutes %}
+            <li>
+                {{ route.url }} <br>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

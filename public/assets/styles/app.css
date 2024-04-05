@@ -1,0 +1,115 @@
+main {
+    margin: 0 auto;
+    max-width: 1200px;
+    min-height: 500px;
+    margin-bottom: 100px;
+}
+
+header {
+    position: relative;
+    height: 300px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-position: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    border-bottom: 4px double #ccc;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+p, blockquote {
+    font-size: 1.2em;
+    line-height: 1.8;
+}
+
+blockquote {
+    font-style: italic;
+    color: #333;
+    border-left: 4px double #ccc;
+    padding-left: 20px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+ul {
+    
+    font-size: 1.5em;
+    
+    li {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+}
+
+figure {
+    margin: 0;
+}
+
+.clear-float {
+    clear: both;
+}
+.site-title {
+    color: #fff;
+    font-size: 5em;
+    text-shadow: -3px 3px 5px rgb(255 180 0);
+}
+
+.container {
+    display: flex;
+    gap: 50px;
+}
+
+.col {
+    flex: 1;
+    
+    img {
+        width: 100%;
+    }
+}
+
+.center {
+    display: block;
+    margin: 0 auto;
+}
+
+.img50 {
+    max-width: 50%;
+}
+
+.left {
+    float: left;
+}
+
+.me {
+    border: double #0D254B;
+    max-width: 250px;
+    margin-right: 1.5em;
+    padding: 0.25em;
+}
+
+.footer {
+    border-top: 4px double;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 20px;
+    clear: both;
+    
+    h3 {
+        color: #666;
+        font-weight: lighter;
+        font-size: 1.5em;
+    }
+}
+
+.column {
+    padding: 10px;
+}
