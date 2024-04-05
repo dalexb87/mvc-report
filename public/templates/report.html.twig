@@ -3,9 +3,86 @@
 {% block title %}Magic number{% endblock %}
 
 {% block body %}
-    <h1>Magic number</h1>
+    <h1>Redovisning</h1>
     <p>
         Skapa en route /report där du samlar dina redovisningstexter för kursens kmom.
         Skapa även så att länken /report#kmom01 leder direkt till kursmomentets redovisningstext.
     </p>
+    <ul>
+        <li><a href="#kmom01">kmom01</a></li>
+        <li><a href="#kmom02">kmom02</a></li>
+        <li><a href="#kmom03">kmom03</a></li>
+        <li><a href="#kmom04">kmom04</a></li>
+    </ul>
+    
+    <h2 id="kmom01">Kursmoment 1</h2>
+    <h3 class="question">Berätta kort om dina förkunskaper och tidigare erfarenheter kring objektorientering</h3>
+    <p>
+        Jag har tidigare läst Java, C# så OOP är inte helt nytt för mig men jag får erkänna att jag aldrig lyckades känna mig riktigt bekväm med ämnet då jag stundvis upplevde det svårt att hålla reda på ut- och inparametrar och rent generellt flödet eller logiken i koden.<br>
+        <br>
+        Det var visserligen ett bra tag sedan jag läste en sådan kurs och jag vågar påstå att lärt mig mycket - allt möjligt, inom webbutveckling under den tiden. Exempelvis är node något som jag tyckte var mycket svårt första gången jag stötte på det, men nuförtiden känns det inte alls lika mäktigt.<br>
+        <br>
+        Jag misstänker därför att jag lär uppleva samma för just objektorientering inom PHP, särskilt då PHP är ett av mina favoritspråk!
+    </p>
+    
+    <h3 class="question">Berätta kort om PHPs modell för klasser och objekt. Vilka är de grunder man behöver veta/förstå för att kunna komma igång och skapa sina första klasser?</h3>
+    <p>
+        Man kan säga att PHP följer grundprinciperna för objektorienterad programmering (OOP) väl.<br>
+        Vi har klasser vilket kan tolkas som en "blueprint" till ett objekt. I en klass deklarerar vi namnsvariabler - beroende på vad för objekt man har i åtanke kan det röra sig om storleksrymder, färg och andra egenskaper eller funktioner som objektet ska kunna utföra.<br>
+        <br>
+        Ett objekt är enkelt uttryckt en instans av en klass vilket initieras med nyckelordet "new". När man skapar en instans på detta viset brukar man skicka med parametrar till en konstruktor som byggts i klassen.
+        Den konstruktorn tar emot de inskickade värden och skapar ett nytt objekt baserat på de värdena.<br>
+        <br>
+        Slutligen har vi en metod som kan bearbeta värdena vidare eller helt enkelt bara presentera dem, exempelvis på en webbsida.<br>
+        Metoden kan dynamiskt visa upp de värdena man skickat till konstruktorn genom att man skriver $this->[namnsvariabel].<br>
+        Med andra ord är OOP ett mycket dynamiskt språk och inte ämnat för "hårdkodad" kod.
+    </p>
+    
+    <h3 class="question">Reflektera kort över den kodbas, koden, strukturen som användes till uppgiften me/report, hur uppfattar du den?</h3>
+    <p>
+        Hittils tycker jag att den är väl strukturerad och betydligt lättare att förstå sig på än andra kodbaser vi använt i diverse kurser.<br>
+        När man väl kommer igång så upplever jag det smärtfritt att hoppa från mapp till mapp och mellan filer, än så länge är det iallafall inte så många olika filer som man behöver hålla reda på.
+    </p> 
+    
+    <h3 class="question">Med tanke på artikeln “PHP The Right Way”, vilka delar i den finner du extra intressanta och värdefulla? Är det några särskilda områden som du känner att du vill veta mer om? Lyft fram några delar av artikeln som du känner mer värdefulla.</h3>
+    <p>
+        Namespace är en mycket värdefull funktion och som det redan står i artikeln medför det att man inte behöver bekymra sig för att skapa eller importera klasser som delar namn. Så länge men definierar att klasser med samma namn finns på olika "namnrymder".<br>
+        <br>
+        PHPDOC. Jag får erkänna att jag är slarvig när det kommer till att kommentera min kod, så det faktum att det finns en standard för hur man bör skriva till kommentarer och annan information underlättar avsevärt - detta är alltså något som jag känner att jag skulle behöva bli bättre på.<br>
+        I samma anda känner jag samma för andra kodstandarder - hur man skriver snygg kod helt enkelt, det är något som intresserar mig då jag oftast frågor mig själv om det verkligen är läsbar kod jag skrivit.
+        <br>
+        <br>
+        Ett annat stycke som jag personligen tycker är intressant är koppling till databas med PDO. På ytan verkar det skilja sig något från den kod vi är vana vid att skriva i de andra kurserna vi gått men jag tror nog inte att det är så mycket mer komplicerat.<br>
+        <br>
+        Slutligen något som jag vet är av ytterst vikt är felhantering, I synnerhet när det kommer till felsökning. Då PHP inte alltid lyckas vara tydlig med vilka åtgärder som bör göras.
+        
+    </p>
+    
+    <h3 class="question">Vilken är din TIL för detta kmom?</h3>
+    <p>
+        Att skapa routes samt rendera data från klasser i twig-mallar, skapa arrayer med objekt och slumpmässigt ta från dessa med array_rand().<br>
+        Returnera rå json-data och därmed skillnaden mellan response och jsonresponse.<br>
+        <br>
+        Lyckades även dynamiskt få fram webbplatsen routes och styra vilka som syns med ett skapat prefix, vilket jag är nöjd med då det tog lite tid att hitta vad för inbyggd funktionalitet jag kunde använda mig av.<br>
+        Om jag inte minns fel har vi jobbat med twig förut i designkursen så det en välkommen bekantskap bland allt nytt så här långt.
+    </p> 
+
+    <h2 id="kmom02">Kursmoment 2</h2>
+    <h3 class="question">Fråga</h3>
+    <p>Svar</p>
+    
+    <h2 id="kmom03">Kursmoment 3</h2>
+    <h3 class="question">Fråga</h3>
+    <p>Svar</p>
+    
+    <h2 id="kmom04">Kursmoment 4</h2>
+    <h3 class="question">Fråga</h3>
+    <p>Svar</p>
+    
+    <h3 class="question">Fråga</h3>
+    <p>Svar</p>
+    
+    <h3 class="question">Fråga</h3>
+    <p>Svar</p>
+    
 {% endblock %}

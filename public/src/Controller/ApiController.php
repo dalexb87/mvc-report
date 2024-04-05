@@ -47,9 +47,9 @@ class ApiController extends AbstractController
     {
         // Array med citat
         $quotes = [
-            "Citat 1",
-            "Citat 2",
-            "Citat 3"
+            "The luxury of hope was given to me by the Terminator. Because if a machine can learn the value of human life, maybe we can too. - Sarah Connor",
+            "The Only Constant in Life Is Change. - Heraclitus",
+            "All I know is that I know nothing. - Socrates"
         ];
         
         // Ta fram  slumpmässigt citat från array

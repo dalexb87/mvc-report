@@ -28,12 +28,38 @@ class MyController extends AbstractController
     }
     
     #[Route("/lucky", name: "lucky")]
-    public function number(): Response
+    public function rando(): Response
     {
+
         $number = random_int(0, 100);
 
+        $images = [
+            'img/H.jpg',
+            'img/T.jpg',
+            'img/S.jpg'
+        ];
+
+        $image = $images[array_rand($images)];
+
+
+        $elements = '';
+        
+        for ($i = 0; $i < 5; $i++) {
+
+            $red = rand(0, 255);
+            $green = rand(0, 255);
+            $blue = rand(0, 255);
+
+            $color = "rgb($red, $green, $blue)";
+
+            $elements .= '<div class="random-element" style="top:' . rand(0, 500) . 'px; left:' . rand(0, 1500) . 'px; background-color:' . $color . ';"></div>';
+        }
+        
+        
         $data = [
-            'number' => $number
+            'number' => $number,
+            'image' => $image,
+            'balls' => $elements
         ];
 
         return $this->render('lucky_number.html.twig', $data);

@@ -20,6 +20,6 @@ Launching the website locally (localhost)
 =========================================
 
 1. Open your terminal and nagivate to the root of the public folder
-2. Typ the following command php -S localhost:8888 -t public and hit enter
+2. Type the following command php -S localhost:8888 -t public and hit enter
 3. A local webserver should now be started
 4. Open your browser and go to the following adress http://localhost:8888/

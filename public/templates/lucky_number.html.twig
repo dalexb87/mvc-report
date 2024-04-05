@@ -3,6 +3,10 @@
 {% block title %}Magic number{% endblock %}
 
 {% block body %}
-    <h1>Magic number</h1>
+    <h1>Let's be random</h1>
     <p>This is the current magic number: {{ number }}</p>
+    <figure>
+        <img src="{{ image }}" alt="random image" class="center">
+    </figure>
+    {{ balls | raw }}
 {% endblock %}

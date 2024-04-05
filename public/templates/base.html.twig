@@ -25,7 +25,6 @@
                 <li><a href="{{ path('about') }}">About</a></li>
                 <li><a href="{{ path('report') }}">Report</a></li>
                 <li><a href="{{ path('lucky') }}">Lucky</a></li>
-                <li><a href="{{ path('api') }}">Tillgängliga routes</a></li>
                 <li><a href="{{ path('api_quote') }}">Dagens citat</a></li>
             </ul>
         </nav>
@@ -33,26 +32,41 @@
         <main>
         {% block body %}{% endblock %}
         </main>
+                                    
+     
+ 
             
+                        
         <footer class="footer clear-float">
             <div class="column">
-                <h3>Column 1</h3>
+                <h3>Snabblänkar</h3>
                 <ul>
                     <li>
+                        <a href="https://github.com/dalexb87/mvc-report" title="Link till sidans github repo.">Mitt github-repo</a>
+                    </li>
+                    <li>
+                        <a href="http://validator.w3.org/check/referer" title="Link till HTML-validering.">Validera HTML</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('api') }}">Tillgängliga routes</a>
+                    </li>
                 </ul>
             </div>
             <div class="column">
-                <h3>Column 1</h3>
+                <h3>Annat</h3>
                 <ul>
-                    <li>
+                    <li>?</li>
                 </ul>
             </div>
             <div class="column">
-                <h3>Column 3</h3>
+                <h3>Kontakt</h3>
                 <ul>
-                    <li>
+                    <li>mail: dalexb87@gmail.com</li>
                 </ul>
             </div>
-        </footer>  
+        </footer> 
+        <div class="final">
+            <span class="copyright">Denna webbplats är skapad av Daniel Blom.</span>
+        </div>        
     </body>
 </html>

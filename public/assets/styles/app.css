@@ -1,8 +1,7 @@
 main {
-    margin: 0 auto;
+    margin: 100px auto;
     max-width: 1200px;
     min-height: 500px;
-    margin-bottom: 100px;
 }
 
 header {
@@ -15,6 +14,28 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+nav {
+    display: flex;
+    padding: 2em;
+    background-color: #000;
+    
+    ul {
+        margin: 0 auto;
+        
+        li {
+            float: left;
+        }
+    }
+    
+    a {
+        color: #f6ff67;
+    }
+    
+    a:hover {
+        color: #fff;
+    }
 }
 
 h1 {
@@ -40,17 +61,26 @@ blockquote {
 }
 
 ul {
-    
+    padding: 0;
     font-size: 1.5em;
     
     li {
         margin-top: 15px;
         margin-bottom: 15px;
+        list-style: none;
+        margin: 0 10px;
+        line-height: 2em;
     }
 }
 
 figure {
     margin: 0;
+    
+    img {
+        border: 10px double #a58461;
+        outline: 2px solid black;
+        background-color: #d97557;
+    }
 }
 
 .clear-float {
@@ -95,6 +125,14 @@ figure {
     padding: 0.25em;
 }
 
+.question {
+    margin: 50px 0;
+    background-color: #eeeeee;
+    font-size: 1.5em;
+    color: #333;
+    padding: 1em;
+}
+
 .footer {
     border-top: 4px double;
     display: grid;
@@ -102,14 +140,61 @@ figure {
     grid-template-columns: 1fr 1fr 1fr;
     padding: 20px;
     clear: both;
+    background-color: #d97557;
+    
+    ul {
+        li {
+            color: #fff;
+        }
+    }
     
     h3 {
-        color: #666;
+        color: #fff;
         font-weight: lighter;
         font-size: 1.5em;
+        border-bottom: 2px solid white;
+    }
+    
+    a {
+        font-size: 1.3rem;
+        color: #f6ff67;
+    }
+    
+    a:hover {
+        color: #fff;
     }
 }
 
 .column {
     padding: 10px;
+}
+
+.final {
+    background-color: #000;
+}
+.copyright {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    padding: 2rem 0;
+    font-size: 1.25em;
+    color: #fff;
+}
+
+/* "CRAZY" */
+
+.random-element {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border: 20px dashed #fff;
+    border-radius: 50%;
+    outline: 10px double #d6cfff;
+    animation: bounce 1s infinite alternate;
+    pointer-events: none;
+}
+
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(500px); }
 }
