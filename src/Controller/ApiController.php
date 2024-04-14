@@ -40,25 +40,25 @@ class ApiController extends AbstractController
                 ];
             }
         }
-
+        
         $myRoutes = [];
-
-        $routes =
+        
+        $routes = 
             [
-                '/',
-                '/about',
-                '/report',
-                '/lucky',
-                '/api',
-                '/api/quote',
-                '/card',
+                './',
+                './about',
+                './report',
+                './lucky',
+                './api',
+                './api/quote',
+                './card',
                 'api/deck',
                 'api/deck/shuffle',
                 'api/deck/draw',
                 'api/deck/draw/3'
             ];
-
-        $descs =
+            
+        $descs = 
             [
                 'Landningssida "Om mig"',
                 'Om kursen länk till github',
@@ -73,10 +73,10 @@ class ApiController extends AbstractController
                 'POST-request drar flera (3) kort och visar antal kort kvar i JSON-format'
             ];
 
-
+        
         foreach ($routes as $index => $route) {
             $myRoutes[] = ['route' => $route, 'description' => $descs[$index]];
-        }
+        }   
 
         return $this->render('api.html.twig', [
             'jsonRoutes' => $jsonRoutes,
@@ -103,17 +103,17 @@ class ApiController extends AbstractController
             'timestamp' => time()
         ]);
     }
-
+    
     #[Route("/api/deck", name: "api_deck", methods: ['GET'])]
     public function deck(): JsonResponse
-    {
-
+    {     
+        
         // Ny instans av klass DeckOfCards
         $deckOfCards = new DeckOfCards();
 
         // Kallar metod getCards() som hämtar array med kort
         $deckOfCards = $deckOfCards->getCards();
-
+        
         // Loopar igenom kortleken och lagrar respektive suit/value för enskilt kort i ny array (för att konvertera till json)
         foreach ($deckOfCards as $card) {
             $deckCards[] = [
@@ -121,13 +121,13 @@ class ApiController extends AbstractController
                 'value' => $card->getValue(),
             ];
         }
-
+      
         // Returnerar array i json-format
         return $this->json([
             'deck' => $deckCards,
         ], 200, [], ['json_encode_options' => JSON_UNESCAPED_UNICODE]);
     }
-
+    
     #[Route("/api/deck/shuffle", name: "api_deck_shuffle", methods: ['POST'])]
     public function shuffle(SessionInterface $session): JsonResponse
     {
@@ -139,30 +139,30 @@ class ApiController extends AbstractController
 
         // Hämta den blandade kortleken
         $shuffledDeck = $deckOfCards->getCards();
-
+        
         // Uppdatera kortleken i sessionen med den blandade kortleken
         $session->set('deck', $shuffledDeck);
-
+        
         foreach ($shuffledDeck as $card) {
             $shuffledDeckData[] = [
                 'suit' => $card->getSuit(),
                 'value' => $card->getValue(),
             ];
         }
-
+        
         // Returnera den blandade kortleken som JSON
         return $this->json([
             'deck' => $shuffledDeckData,
         ], 200, [], ['json_encode_options' => JSON_UNESCAPED_UNICODE]);
     }
-
+    
     #[Route("/api/deck/draw", name: "api_draw_next", methods: ['POST'])]
     public function draw(SessionInterface $session): JsonResponse
     {
         $deck = $session->get('deck', []);
-
+        
         $deckOfCards = new DeckOfCards($deck);
-
+        
         // Dra ett kort från kortleken
         $draw = $deckOfCards->dealCard();
 
@@ -179,27 +179,27 @@ class ApiController extends AbstractController
         ],
             'remainingCards' => $remainingCards,
         ], 200, [], ['json_encode_options' => JSON_UNESCAPED_UNICODE]);
-    }
-
+    } 
+    
     #[Route("/api/deck/draw/{num<\d+>}", name: "api_draw_cards", methods: ['POST'])]
     public function drawCards(int $num, SessionInterface $session): JsonResponse
     {
         $deck = $session->get('deck', []);
-
+        
         $drawnCards = [];
         $deckOfCards = new DeckOfCards($deck);
-
+        
         // tar antal från inparameter och loopar igenom array för att dra lika många kort med dealCard()
         for ($i = 0; $i < $num; $i++) {
-
+            
             $drawnCards[] = $deckOfCards->dealCard();
         }
-
+        
         // Uppdaterar array i session med aktuell kortlek
-        $session->set('deck', $deckOfCards->getCards());
-
+        $session->set('deck', $deckOfCards->getCards());     
+        
         $remainingCards = $deckOfCards->getRemainingCardsCount();
-
+        
         // Loopar igenom arrayen med alla dragna kort och lagrar respektive suit/value för enskilt kort i ny array
         foreach ($drawnCards as $drawnCard) {
             $drawnCardsData[] = [
@@ -207,11 +207,11 @@ class ApiController extends AbstractController
                 'value' => $drawnCard->getValue(),
             ];
         }
-
+        
         // Returnera dragna kort och kvarstående som JSON
         return $this->json([
             'drawn' => $drawnCardsData,
             'remainingCards' => $remainingCards,
         ], 200, [], ['json_encode_options' => JSON_UNESCAPED_UNICODE]);
-    }
+        }
 }

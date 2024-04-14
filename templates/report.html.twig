@@ -68,8 +68,65 @@
     </p> 
 
     <h2 id="kmom02">Kursmoment 2</h2>
-    <h3 class="question">Fråga</h3>
-    <p>Svar</p>
+    <h3 class="question">Förklara kort de objektorienterade konstruktionerna arv, komposition, interface och trait och hur de används i PHP.</h3>
+    <p>
+        <strong>Arv</strong> gör det möjligt för en "barnklass" att ärva egenskaper/namnsvariabler och metoder från en "förälderklass".
+        Detta kan man lyckas med genom att använda sig av nyckelordet extends. I korta drag innebär det att man i barnklassen sedan kan bygga vidare, utöka, med fler egenskaper och metoder då man ärver samtliga från förälderklassen.
+        <br>
+        <br>
+        <strong>Komposition</strong> betyder att en klass består av instanser från en annan klass. Man kan alltså skapa nya instanser av en klass inuti en annan klass för att utöka funktionalitet och koppling mellan klasserna. Man kan säga att man helst vill dela upp uppgifter i flera olika, logiska klasser.
+        Exempelvis kan en "hus" klass bestå av olika "rum" - då är alltså dessa två separata klasser, men man kan skapa en rum instans i hus-klassen och låta dessa ha logiska egenskaper och metoder.
+        <br>
+        <br>
+        Ett <strong>"interface"</strong> är en eller flera metoder som en annan klass är tvungen att implementera. En viss kanske är tvungen att ha viss grundfunktionalitet och då vill man implementera detta från en interface där samtliga behövliga metoder ligger - och då måste de alltså även skapas i klassen också.
+        <br>
+        <br>
+        Till skillnad från interface finns ett annat nyckelord <strong>"trait"</strong> som är lite lösare reglerat. Även det är en samling av metoder som man vill återanvända i sin app.
+    </p>
+    
+    <h3 class="question">Berätta om din implementation från uppgiften. Hur löste du uppgiften, är du nöjd/missnöjd, vilken förbättringspotential ser du i din koden och dina klasser?</h3>
+    <p>
+        Jag började med att kolla på "gris"-spelet övningen som jag gjorde innan och försökte se vad för klasser som jag kunde återanvända och skriva om så de passade enligt kortleksuppgiften.
+        I slutändan blev det dock mest DeckOfCards() klassen som fick stå för grovarbetet. Därefter började jag med att skapa min CardGameController. Uppgiften gick ut på att skapa en kortlek där varje kort i slutändan skulle ha någon slags grafik. Jag väntade dock just det kravet och började med två enkla arrayer som var strängvärden.<br>
+        <br>
+        Allt eftersom började jag skapa kontroller och routes för de olika sidorna under kriterier - i övningsuppgiften hade vi lärt oss om sessionen så den biten var till en början smärtfri.
+        <br>
+        <br>
+        Vid det här laget hade jag redan skapat klassen DeckOfCards så jag skapade en ny instans av den för varje route och kallade på metoderna i den. getCards() för att skriva ut arrayerna som byggs med deck() i samma klass, shuffle() för att blanda om korten, dealCard() för att hämta ett kort och så vidare.<br>
+        <br>
+        Varje gång sparade jag även när kortleken till sessionen, vilket behövdes för när man skulle dra ett eller flera kort. Samt att varje kontroll inleddes med en session->get för att hämta kortleken och skicka den till konstruktorn i DeckOfCards klassen.<br>
+        Detta bortsett från "shuffle" rutten som bygger om hela kortleken genom att man inte skicka med något.
+        <br>   
+        <br>
+        Den grafiska representationen av kortleken löse jag relativt lätt genom att använda mig av associativa arrayer som matchade inkommande nycklar och fick ut UNICODE symbolerna.
+        Jag är rätt så nöjd med hur kodstrukturen och funktionaliteten är implementerad även om jag inser att det finns utrymme för förbättring, är även tveksam på om jag verkligen löste arv och kompositionsdelen "korrekt".<br>
+        <br>
+        Vidare kanske logiken av klasserna kunde varit mer tydlig och uppdelat då just DeckOfCards blev lite "stor". CardHand() klassen fick jag exempelvis aldrig användning av så det är ett frågetecken om jag kunde använt den på något vis.<br>
+        <br>
+        Trots detta har jag fått till ett inslag av arv genom att "extenda" CardGraphic klassen med Card och ärva dess egenskaper och metoder samt att jag även har ett inslag av komposition i DeckOfCards där ursprungsarryer med strängvärden skickas som argument till en instans av CardGraphic för att bygga om till grafiska symboler via de associativa arrayerna jag nämnde tidigare.<br>
+        Det var en rätt så stor uppgift och allt som allt är jag nöjda, men det där med arv och komposition är jag som sagt osäker på.
+    </p>
+    
+    <h3 class="question">Vilka är dina reflektioner så här långt med att jobb i Symfony med applikationskod enligt MVC?</h3>
+    <p>
+        Till skillnad från andra utvecklingsmiljöer som vi använt oss av i kurserna tycker jag att detta känns mest behändigt. Det tycks inte vara fullt lika många mappar och filer att hålla reda på och att nagivera mellan klasser/moduler, controllers och templates känns både smidigt och vettigt.<br>
+        <br>
+        Så kortsagt tycker jag att Symfony är kul att utveckla i jämförelse med några andra miljöer vi prövat.
+    </p>
+    
+    <h3 class="question">Vilken är din TIL för detta kmom?</h3>
+    <p>
+        Det var ännu en maffig uppgift så det är svårt att komma ihåg allt men - ett litet intro till hur man skapar klasser och arv samt skapa metoder i dessa klasser som utför olika funktionaliteter. Lite komposition genom att en klass är beroende av en annan som är fallet med min CardGraphic() klass.<br>
+        <br>
+        Jag byggde även om min "api" sida och skapade två egna arrayer för route och beskrivning varpå jag använde en foreach loop för att slå ihop de till en vilken jag sedan skicka med som data till en render.<br>
+        Lite I samma anda har jag använt ett flertal nestlade foreach-loopar för att åstadkomma samma sak när jag exempelvis ville koppla ihop "suite" och "value" arrayerna för kortleken och slå samman de i en och samma, så att jag kunde plocka ut ett eller flera kort som hörde ihop.<br>
+        <br>
+        Jag lärde mig om flash-meddelande och hur smidigt det var att rendera dessa i en separat mall som man sedan "includa" efter behov. Det var även lite om session och hur man skapade, lagrade sessionsdata och kunde ta bort en sådan.<br>
+        <br>
+        Vidare var jag tvungen att lära mig om associativ arrayer för att lära mig hur man kunde hämta upp ett värde/nyckel från en array och konvertera det till ett annat.<br>
+        <br>
+        Annars mycket användning av metoder främst i DeckOfCards() klassen samt att jag var tvungen att spara undan sessionens kortlek och skicka med den till konstruktorn.
+    </p>
     
     <h2 id="kmom03">Kursmoment 3</h2>
     <h3 class="question">Fråga</h3>
