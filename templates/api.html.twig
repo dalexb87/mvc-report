@@ -4,12 +4,32 @@
 
 {% block body %}
     <h1>JSON API</h1>
-    <p>Här visas webbplatsens samtliga routes</p>
-    <ul>
-        {% for route in jsonRoutes %}
-            <li>
-                {{ route.url }} <br>
-            </li>
-        {% endfor %}
-    </ul>
+    <p>Här visas webbplatsens samtliga routes</p> 
+    
+    {% for route in routes %}
+    <div>
+        {% if route.route == 'api/deck/shuffle' %}
+            <form action="{{ path('api_deck_shuffle') }}" method="POST">
+                <p><button type="submit">{{ route.route }}</button> - {{ route.description }}</p>
+            </form>
+            
+    
+        {% elseif route.route == 'api/deck/draw' %}
+            <form action="{{ path('api_draw_next') }}" method="POST">
+            <p><button type="submit">{{ route.route }}</button> - {{ route.description }}</p>
+            </form>
+             
+        {% elseif route.route starts with 'api/deck/draw/' %}
+            <form method="POST" action="{{ path('api_draw_cards', {'num': 3}) }}">
+                <p><button type="submit">{{ route.route }}</button> - {{ route.description }}</p>
+            </form>
+            
+        {% else %}
+            <p>
+                <a href="{{ route.route }}">{{ route.route }}</a> - {{ route.description }}
+            </p>
+        {% endif %}           
+    </div>
+    {% endfor %}
+    
 {% endblock %}

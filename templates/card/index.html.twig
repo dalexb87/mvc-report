@@ -1,0 +1,51 @@
+{% extends "base.html.twig" %}
+
+{% block title %}About{% endblock %}
+
+{% block body %}
+    <h1>Kortlek länkar</h1>
+    
+    <p>I kortleks-appen finns det 4 klasser.</p>
+
+    <h2>Card</h2>
+    <p>
+        Denna klass står för ett enstaka kort och har attributen suit/färg och value/siffra.
+        
+        Det finns en mjuk koppling till CardHand() då det är möjligt att skapa en instans en instans för att lägga till och hämta kort i den klassen.<br>
+        Detta är dock inget jag använt mig av i denna uppgift då det främst handlat om att plocka bort kort och inte lägga till något.
+    </p>
+
+    <h2>CardHand</h2>
+    <p>
+
+        Denna klass representerar en hållen hand med kort och har metoder för att lägga till och ta bort kort. Den har en mjuk koppling (aggregation) till Card då kort
+        kan existera utan klassen.
+
+        I denna app har jag dock inte använt klassen någonstans då jag istället byggt upp kortleken med DeckOfCards() och använt metoder där för att plocka bort kort.
+    </p>
+
+
+    <h2>CardGraphic</h2>
+    <p>
+        Denna klass ärver (extends) Card-klassen och innehåller metoder för att visa upp grafik för korten. Den har två arrayer, en för "suite" och en för value" som assoscierar inkommande värden från DeckOfCards() och bygger om till UNICODE grafik för respektive index.
+        Med GET-metoder är det även möjligt att bearbeta dessa i kontrollern och rendera ut i twig-mallen.
+    </p>
+
+    <h2>DeckofCards</h2>
+    <p>
+        Denna klass innehåller hela kortleken och är hårt kopplat till CardGraphic (komposition) då den är ansvarig för att ursprungsvärden för korten byts ut till grafik.
+        Den har metoder för att bygga upp/om en hel kortlek, ändra korten till grafik. Vidare metoder för att blanda korten, plocka bort och hämta samt visa resterande kort kvar i leken.
+    </p>
+    <br>
+    <figure>
+        <img src="{{ asset('img/klasser-koppling.jpg') }}" alt="UML klass diagram över kortlek">
+    </figure>
+    <br>
+    <ul>
+        <li><a href="{{ path('view_deck') }}">Visa kortleken</a></li>
+        <li><a href="{{ path('shuffle_deck') }}">Visa omblandad kortlek</a></li>
+        <li><a href="{{ path('draw_next') }}">Dra ett kort</a></li>
+        <li><a href="{{ path('draw_cards', { num: 3 }) }}">Dra ett visst antal kort</a></li>
+    </ul>
+    
+{% endblock %}

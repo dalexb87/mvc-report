@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+
+{% block title %}About{% endblock %}
+
+{% block body %}
+
+    <h1>Dragna kort</h1>
+
+    <ul class="cards">
+        {% for card in drawnCards %}
+            <li>{{ card.suit }} - {{ card.value }}</li>
+        {% endfor %}
+    </ul>
+
+    <p>Remaining Cards in Deck: {{ remainingCards }}</p>
+    
+{% endblock %}

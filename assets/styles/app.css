@@ -1,7 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
 main {
     margin: 100px auto;
     max-width: 1200px;
-    min-height: 500px;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
 }
 
 header {
@@ -26,6 +31,7 @@ nav {
         
         li {
             float: left;
+            list-style: none;
         }
     }
     
@@ -67,7 +73,6 @@ ul {
     li {
         margin-top: 15px;
         margin-bottom: 15px;
-        list-style: none;
         margin: 0 10px;
         line-height: 2em;
     }
@@ -120,9 +125,20 @@ figure {
 
 .me {
     border: double #0D254B;
-    max-width: 250px;
+    max-width: 450px;
     margin-right: 1.5em;
     padding: 0.25em;
+}
+
+pre.sf-dump {
+    font-size: 1.5em !important;
+}
+
+button {
+    
+    a {
+        text-decoration: none;
+    }
 }
 
 .question {
@@ -139,6 +155,7 @@ figure {
     gap: 20px;
     grid-template-columns: 1fr 1fr 1fr;
     padding: 20px;
+    margin-top: 200px;
     clear: both;
     background-color: #d97557;
     
@@ -197,4 +214,55 @@ figure {
 @keyframes bounce {
     0% { transform: translateY(0); }
     100% { transform: translateY(500px); }
+}
+
+/* Dice game */
+
+.die {
+    font-size: 2em;
+}
+
+/* Card game */
+
+.deck-table {
+    table-layout: fixed;
+    width: 20%;
+    text-align: left;
+    font-size: 3em;
+
+}
+
+.cards {
+    font-size: 3em;
+}
+
+/* Flash messages */
+
+.flash-success {
+    padding: 0.5em;
+    color: #004085;
+    background-color: #b6ffb7;
+    border-color: #b8daff;
+}
+.flash-success:before {
+    content: "ⓘ";
+}
+.flash-notice {
+    padding: 0.5em;
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+}
+.flash-notice:before {
+    content: "ⓘ";
+}
+
+.flash-warning {
+    padding: 0.5em;
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+}
+.flash-warning:before {
+    content: "⚠";
 }

@@ -1,0 +1,26 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Kortleken{% endblock %}
+
+{% block body %}
+
+    <h1>Kortleken</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Suit</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody class="deck-table">
+            {% for card in deck %}
+                <tr>
+                    <td>{{ card.suit }}</td>
+                    <td>{{ card.value }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+{% endblock %}

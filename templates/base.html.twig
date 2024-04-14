@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="referrer" content="unsafe-url">
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="{{ asset('img/glider.svg') }}">
         {% block stylesheets %}
@@ -26,6 +27,7 @@
                 <li><a href="{{ path('report') }}">Report</a></li>
                 <li><a href="{{ path('lucky') }}">Lucky</a></li>
                 <li><a href="{{ path('api_quote') }}">Dagens citat</a></li>
+                <li><a href="{{ path('card') }}">Kortspel</a></li>
             </ul>
         </nav>
         
@@ -49,6 +51,9 @@
                     </li>
                     <li>
                         <a href="{{ path('api') }}">Tillgängliga routes</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('session') }}">Session</a>
                     </li>
                 </ul>
             </div>

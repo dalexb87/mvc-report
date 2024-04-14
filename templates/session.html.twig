@@ -1,0 +1,14 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Session{% endblock %}
+
+{% block body %}
+    
+    <h1>Innehåll i sessionen</h1>
+
+    <pre>{{ dump(sessionData) }}</pre>
+    <button><a href="{{ path('session_delete') }}">Rensa session</a></button>
+    
+    <p>{{ include('flash.html.twig') }}</p>
+    
+{% endblock %}

@@ -20,13 +20,13 @@ class MyController extends AbstractController
     {
         return $this->render('about.html.twig');
     }
-    
+
     #[Route("/report", name: "report")]
     public function report(): Response
     {
         return $this->render('report.html.twig');
     }
-    
+
     #[Route("/lucky", name: "lucky")]
     public function rando(): Response
     {
@@ -43,7 +43,7 @@ class MyController extends AbstractController
 
 
         $elements = '';
-        
+
         for ($i = 0; $i < 5; $i++) {
 
             $red = rand(0, 255);
@@ -54,8 +54,8 @@ class MyController extends AbstractController
 
             $elements .= '<div class="random-element" style="top:' . rand(0, 500) . 'px; left:' . rand(0, 1500) . 'px; background-color:' . $color . ';"></div>';
         }
-        
-        
+
+
         $data = [
             'number' => $number,
             'image' => $image,
